@@ -15,8 +15,8 @@ NTPClient ntpTime(ntpUDP, "a.ntp.br");
 PubSubClient client(nodeMCU);
 
 /*          WIFI SETTINGS           */
-const char* ssid = "<ssid>";
-const char* password = "<pass>";
+const char* ssid = "MotoOneAction";
+const char* password = "expresso";
 
 /*          MQTT SETTINGS            */
 const char* mqttServer = "mqtt.eclipseprojects.io";
