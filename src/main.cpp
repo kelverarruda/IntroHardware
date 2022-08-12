@@ -17,6 +17,7 @@ void lerSensorDHT11()
 {
 	float temp = dht.getTemperature();
 	float humid = dht.getHumidity();
+
 	if (isnan(temp) || isnan(humid))
 	{
 		Serial.println("Failed to read from DHT sensor!");
@@ -38,9 +39,6 @@ void lerSensorDHT11()
 		client.publish(topicTempColor, tempNormalhColor, true);
 	}
 
-	client.publish(topicTemp, String(temp).c_str(), true);
-	client.publish(topicHumid, String(humid).c_str(), true);
-
 	ntpTime.update();
 	String formattedTime = ntpTime.getFormattedTime();
 	Serial.print(formattedTime + " -> ");
@@ -49,6 +47,11 @@ void lerSensorDHT11()
 	Serial.print(" | ");
 	Serial.print("Humidity: ");
 	Serial.println(humid);
+
+	client.publish(topicTemp, String(temp).c_str(), true);
+	client.publish(topicHumid, String(humid).c_str(), true);
+	client.publish(topicClock, String(formattedTime).c_str(), true);
+	client.publish(topicUptime, String((millis() / 1000) / 60).c_str(), true);
 }
 
 void setup()

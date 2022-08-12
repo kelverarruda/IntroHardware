@@ -29,6 +29,8 @@ const char* topicHumid = "rklab/humidity";
 const char* topicTempColor = "rklab/temperature-color";
 const char* topicTempHigh = "rklab/temperature-high";
 const char* topicTempLow = "rklab/temperature-low";
+const char* topicClock = "rklab/clock";
+const char* topicUptime = "rklab/uptime";
 
 /*          SETTINGS            */
 int tempHigh = 32;
